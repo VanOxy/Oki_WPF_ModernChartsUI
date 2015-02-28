@@ -13,9 +13,9 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel VerticalAlignment="Center" Margin="10" Grid.Column="1">
-            <Button Width="50" Content="Add" Command="{Binding ButtonCommand}" Margin="10" />
-            <ComboBox x:Name="SelectedCountry" ItemsSource="{Binding PopulationNames}"
-                      SelectedItem="{Binding SelectedCountry, Mode=OneWayToSource}" />
+            <Button Width="50" Content="Add" Command="{Binding ButtonCommand}" Margin="10"
+                    CommandParameter="{Binding ElementName=SelectedCountry, Path=SelectedItem}" />
+            <ComboBox x:Name="SelectedCountry" ItemsSource="{Binding PopulationNames}" />
         </StackPanel>
 
         <chart:PieChart ChartSubTitle="Population in millions"

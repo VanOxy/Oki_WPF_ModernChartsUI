@@ -14,9 +14,6 @@ namespace Wpf_ModernCharts.ViewModel
         private ObservableCollection<string> _populationNames;
         private ObservableCollection<Population> _populations;
         private Timer _timer;
-        private string _selectedCountry = "";
-
-        public RelayCommand ButtonCommand { get; private set; }
 
         public ObservableCollection<Population> Populations
         {
@@ -32,16 +29,11 @@ namespace Wpf_ModernCharts.ViewModel
             private set { _populationNames = value; }
         }
 
-        public string SelectedCountry
-        {
-            set
-            {
-                _selectedCountry = value;
-            }
-        }
+        public RelayCommand<string> ButtonCommand { get; private set; }
 
         public MainViewModel()
         {
+            ButtonCommand = new RelayCommand<string>((c) => ActionOnButtonCommand(c));
             _populations = new ObservableCollection<Population>();
             _populationNames = new ObservableCollection<string>();
 
@@ -60,15 +52,13 @@ namespace Wpf_ModernCharts.ViewModel
             _populationNames.Add("Brazil");
             _populationNames.Add("Pakistan");
             _populationNames.Add("Nigeria");
-
-            this.ButtonCommand = new RelayCommand(ActionOnButtonCommand);
         }
 
-        private void ActionOnButtonCommand()
+        private void ActionOnButtonCommand(string country)
         {
             try
             {
-                _populations.Where(itm => itm.Name.Equals(_selectedCountry)).First().Count += 100;
+                _populations.Where(itm => itm.Name.Equals(country)).First().Count += 100;
             }
             catch { }
         }
