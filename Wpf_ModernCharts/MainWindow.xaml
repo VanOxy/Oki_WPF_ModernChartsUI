@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel VerticalAlignment="Center" Margin="10" Grid.Column="1">
-            <Button Width="50" Content="Add" Command="{Binding ButtonCommand}" Margin="10"
+            <Button Width="50" Content="Add" Command="{Binding ButtonCommand}"
                     CommandParameter="{Binding ElementName=SelectedCountry, Path=SelectedItem}" />
             <ComboBox x:Name="SelectedCountry" ItemsSource="{Binding PopulationNames}" />
         </StackPanel>

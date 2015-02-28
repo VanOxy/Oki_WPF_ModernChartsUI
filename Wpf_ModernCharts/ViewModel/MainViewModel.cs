@@ -13,21 +13,10 @@ namespace Wpf_ModernCharts.ViewModel
     {
         private ObservableCollection<string> _populationNames;
         private ObservableCollection<Population> _populations;
-        private Timer _timer;
 
-        public ObservableCollection<Population> Populations
-        {
-            get
-            {
-                return _populations;
-            }
-        }
+        public ObservableCollection<Population> Populations { get { return _populations; } }
 
-        public ObservableCollection<string> PopulationNames
-        {
-            get { return _populationNames; }
-            private set { _populationNames = value; }
-        }
+        public ObservableCollection<string> PopulationNames { get { return _populationNames; } }
 
         public RelayCommand<string> ButtonCommand { get; private set; }
 
