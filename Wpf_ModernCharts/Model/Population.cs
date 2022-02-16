@@ -13,6 +13,8 @@ namespace Wpf_ModernCharts.Model
         private string _name = string.Empty;
         private int _count = 0;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string Name
         {
             get
@@ -38,8 +40,6 @@ namespace Wpf_ModernCharts.Model
                 NotifyPropertyChanged("Count");
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
